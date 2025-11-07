@@ -9,11 +9,16 @@ def main():
     """
     This script provides a TUI for selecting and running setup scripts.
     """
+    
+    dir = os.getenv("INSTALL_SCRIPT_DIR", "0")
+    assert(dir == "0")
+    print(f"{dir}")
+    
     # Make sure scripts are executable
-    subprocess.run(["./tools/make_executable.sh"], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    subprocess.run([f"{dir}/tools/make_executable.sh"], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
     scripts = []
-    for root, _, files in os.walk("setup/"):
+    for root, _, files in os.walk(f"{dir}/setup/"):
         for file in files:
             if file.endswith(".sh"):
                 scripts.append(os.path.join(root, file))
@@ -52,7 +57,7 @@ def main():
             subprocess.run([f"./tools/{script}"], check=True)
     else:
         print(f"Führe {os.path.basename(selected_script)} aus...")
-        subprocess.run([f"./tools/{selected_script}"], check=True)
+        subprocess.run([f"./{selected_script}"], check=True)
 
     print("Setup abgeschlossen.")
 

@@ -15,6 +15,8 @@ rm -rf .venv
 echo "Creating virtual environment..."
 python3 -m venv .venv
 
+export INSTALL_SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 # Install dependencies using the venv's pip
 echo "Installing dependencies..."
 .venv/bin/pip install -r requirements.txt
