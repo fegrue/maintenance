@@ -1,0 +1,10 @@
+
+services:
+  test-zsh-setup:
+    build:
+      context: ..
+      dockerfile: Test/Dockerfile
+    volumes:
+      - ..:/workspace
+    working_dir: /workspace
+    command: /workspace/setup.sh
