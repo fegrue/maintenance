@@ -54,10 +54,10 @@ def main():
         print("Führe alle Skripte aus...")
         for script in scripts:
             print(f"Führe {os.path.basename(script)} aus...")
-            subprocess.run([f"./{script}"], check=True)
+            subprocess.run([f".{script}"], check=True)
     else:
         print(f"Führe {os.path.basename(selected_script)} aus...")
-        subprocess.run([f"./{selected_script}"], check=True)
+        subprocess.run([f".{selected_script}"], check=True)
 
     print("Setup abgeschlossen.")
 
