@@ -16,6 +16,9 @@ echo "Creating virtual environment..."
 python3 -m venv .venv
 
 export INSTALL_SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+echo "ENVIRONMENT VARIABLE:"
+echo $INSTALL_SCRIPT_DIR
+
 
 # Install dependencies using the venv's pip
 echo "Installing dependencies..."
