@@ -11,7 +11,7 @@ def main():
     """
     
     dir = os.getenv("INSTALL_SCRIPT_DIR", "0")
-    assert(dir == "0")
+    assert(dir is not "0")
     print(f"{dir}")
     
     # Make sure scripts are executable
